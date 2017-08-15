@@ -37,7 +37,7 @@ if(isset($_GET['download'])){
 $filecrc = $_GET['download'];
 $filecrctxt = $filecrc . ".mfh";
 if (file_exists("./files/" . $filecrctxt)) {
-	$fh = fopen("./files/" . $filecrctxt, r);
+	$fh = fopen("./files/" . $filecrctxt, "r");
 	$filedata= explode('|', fgets($fh));
 }
 echo "<script>window.location='".$scripturl."download2.php?a=".$filecrc."&b=".md5($filedata[1].$_SERVER['REMOTE_ADDR'])."';</script>";
@@ -54,7 +54,7 @@ unlink("./thumbs/".$_GET['delete1']);
 <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><?php echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><?php echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><?php echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><?php echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><?php echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><?php echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><?php echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><?php echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><?php echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><?php echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><?php echo $settings;?></a> |
 </td></tr></table>
 </center><br />
 <h1>Images</h1>
@@ -75,7 +75,7 @@ $dirname = "./imgfiles";
 $dh = opendir( $dirname ) or die("couldn't open directory");
 while ( $file = readdir( $dh ) ) {
 if ($file != '.' && $file != '..' && $file != '.htaccess') {
-	$fh = fopen ("./imgfiles/".$file, r);
+	$fh = fopen ("./imgfiles/".$file, "r");
 	$list= explode('|', fgets($fh));
 	$filecrc = str_replace(".mfh","",$file);
 	if (isset($_GET['sortby'])) {
@@ -109,7 +109,7 @@ if ($file{0} != '.') {
 $filecrc = str_replace(".txt","",$file);
 $filesize = filesize("./images/". $filecrc);
 $filesize = ($filesize / 1048576);
-$fh = fopen ("./imgfiles/".$file, r);
+$fh = fopen ("./imgfiles/".$file, "r");
 $filedata= explode('|', fgets($fh));
 echo "<tr>";
 echo "<td align=center>".$i."</td>";
@@ -150,7 +150,7 @@ echo "<div align=left>Page: " .$nav_search . " Images: " . $i++ . "</div>";
 ///////////End Image Dir
 ?>
 </center></td></tr></table><p style="margin:3px;text-align:center">
-<?
+<?php
 include("./footer.php");
 die();
 }
@@ -220,11 +220,11 @@ fputs($f,$_POST['banthis']."\n");
 <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><?php echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><?php echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><?php echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><?php echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><?php echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><?php echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><?php echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><?php echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><?php echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><?php echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><?php echo $settings;?></a> |
 </td></tr></table>
 </center><br />
 <h1>Ban-Management</h1><p>
-<center><form action="admin.php?act=bans" method="post"><? echo $lang[ban_text];?><br><br>
+<center><form action="admin.php?act=bans" method="post"><?php echo $ban_text;?><br><br>
 <input type="text" name="banthis" size=35>
 <input type="submit" value="BAN!">
 <br />
@@ -238,7 +238,7 @@ foreach($fc as $line)
 }
 ?>
 </center></td></tr></table><p style="margin:3px;text-align:center">
-<?
+<?php
 include("./footer.php");
 die();
 }
@@ -248,28 +248,28 @@ if(isset($_GET['act']) && $_GET['act']=="changedlpass") {
 <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><?php echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><?php echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><?php echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><?php echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><?php echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><?php echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><?php echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><?php echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><?php echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><?php echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><?php echo $settings;?></a> |
 </td></tr></table>
 <center><br>
-<h1><? echo $lang[master];?></h1>
+<h1><?php echo $master;?></h1>
 <p><center>
 <form action="admin.php?act=changedlpass" method="post">
-  <p align=center><? echo $lang[set_master];?><br><br><center>
+  <p align=center><?php echo $set_master;?><br><br><center>
   <table border=0 cellspacing=3 cellpadding=0><tr><td align=left>
-  <? echo $lang[set_master_1];?></td><td>
+  <?php echo $set_master_1;?></td><td>
     <input type="text" name="changedlpass1" size=35></td></tr>
     <tr><td colspan=2 align=center>
-    <input type="submit" value="<? echo $lang[set_master_now];?>">
+    <input type="submit" value="<?php echo $set_master_now;?>">
     </td></tr></table>
   </div>
 </form></center>
 </center></td></tr></table><p style="margin:3px;text-align:center">
-<?
+<?php
 $dirname = "./files";
 $dh = opendir( $dirname ) or die("couldn't open directory");
 while ( $file = readdir( $dh ) ) {
 if ($file != '.' && $file != '..' && $file != ".htaccess") {
-  $fh=fopen("./files/" . $file ,'r');
+  $fh=fopen("./files/" . $file ,"r");
   $filedata= explode('|', fgets($fh));
   if ($filedata[7])
   {
@@ -282,7 +282,7 @@ fwrite($filelist, $filedata[0]."|".$filedata[1]."|".$filedata[2]."|".$filedata[3
 closedir( $dh );
 ?>
 </center></td></tr></table><p style="margin:3px;text-align:center">
-<?
+<?php
 include ("./footer.php");
 die();
 }
@@ -292,10 +292,10 @@ if(isset($_GET['act']) && $_GET['act']=="info") {
 <table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><?php echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><?php echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><?php echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><?php echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><?php echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><?php echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><?php echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><?php echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><?php echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><?php echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><?php echo $settings;?></a> |
 </td></tr></table>
 <center><br>
-<h1><? echo $lang[info_11];?></h1>
+<h1><?php echo $info_11;?></h1>
 <center>
 
 <?php
@@ -359,10 +359,10 @@ function getCpuUsage($_statPath = '/proc/stat') {
 <font face="verdana" size=2>
 <center><table width=350 border=0 cellspacing=1 cellpadding=3 bgcolor=#C0C0C0>
 <tr>
-<th colspan=3 bgcolor=#C0C0C0 background="img/button03.gif"><font color=#000000>Server: <? echo $_SERVER['SERVER_NAME'] ?></th>
+<th colspan=3 bgcolor=#C0C0C0 background="img/button03.gif"><font color=#000000>Server: <?php echo $_SERVER['SERVER_NAME'] ?></th>
 </tr>
 <tr>
-<td bgcolor=#C0C0C0 background="img/button03.gif" align=center><b><? echo $lang[sd];?></td>
+<td bgcolor=#C0C0C0 background="img/button03.gif" align=center><b><?php echo $sd;?></td>
 <td bgcolor=#C0C0C0 background="img/button03.gif" align=center><b>Status</td>
 <td bgcolor=#C0C0C0 background="img/button03.gif" align=center><b>Port</td>
 </tr>
@@ -387,14 +387,14 @@ $cpu = getCpuUsage();
 $cpulast = 100-$cpu['idle'];
 echo '<center><table width=350 border=0 cellspacing=1 cellpadding=3 bgcolor=#C0C0C0>';
 echo "<tr><th colspan=3 bgcolor=#000000 background=\"img/button03.gif\">";
-echo "<font color=#000000>". $lang[cpu] . $_SERVER['SERVER_NAME']."</th></tr>";
+echo "<font color=#000000>". $cpu . $_SERVER['SERVER_NAME']."</th></tr>";
 echo '<tr><td colspan=3 align=center bgcolor="#EAEAEA"><center><img src="ratingbar.php?rating='.$cpulast.'" border="0"></td></tr>';
-echo "<tr><td bgcolor=#EAEAEA>". $lang[ap] ."</td><td colspan=2 align=center bgcolor=#EAEAEA>" . $cpulast . "%</td></tr>";
+echo "<tr><td bgcolor=#EAEAEA>". $ap ."</td><td colspan=2 align=center bgcolor=#EAEAEA>" . $cpulast . "%</td></tr>";
 echo '</table><br>';
-echo $lang[la].": ".date("d.m.Y - H:i",filemtime(basename($_SERVER["PHP_SELF"])));
+echo $la.": ".date("d.m.Y - H:i",filemtime(basename($_SERVER["PHP_SELF"])));
 ?>
 
-<?
+<?php
 echo "</center></td></tr></table><p style=\"margin:3px;text-align:center\">";
 include ("./footer.php");
 die();
@@ -416,138 +416,138 @@ if(isset($_GET['chmod']) && ($_GET['chmod']=="1")){
 <table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><?php echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><?php echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><?php echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><?php echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><?php echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><?php echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><?php echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><?php echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><?php echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><?php echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><?php echo $settings;?></a> |
 </td></tr></table>
 <center><br>
-<h1><? echo $lang[check_1];?></h1>
+<h1><?php echo $check_1;?></h1>
 <center>
 <font face=verdana size=2>
-<? echo $lang[check_2];?><br><br>
+<?php echo $check_2;?><br><br>
 <table border=0 cellspacing=1 cellpadding=2 bgcolor=#C0C0C0>
 <tr><td colspan=3 bgcolor=#C0C0C0 background="img/button03.gif" align=center><font face=verdana size=2>
-<b><? echo $lang[folder];?></td></tr>
+<b><?php echo $folder;?></td></tr>
 <tr><td bgcolor=#F2F2F2 align=left><font face=verdana size=2>
 ./files</td><td bgcolor=#F2F2F2>
-<?
+<?php
 $ziel="./files";  // oder "/tmp" oder  "." etc.
 $ordner=realpath($ziel);
 if ($ordner===false)
     {
-    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldern];
+    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldern;
     } else
     {
     if (is_writeable($ordner))
         {
-        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[foldere];
+        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$foldere;
         } else
         {
-        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldernw];
+        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldernw;
         }
     }
 ?>
 </td></tr>
 <tr><td bgcolor=#F2F2F2 align=left><font face=verdana size=2>
 ./storage</td><td bgcolor=#F2F2F2>
-<?
+<?php
 $ziel="./storage";  // oder "/tmp" oder  "." etc.
 $ordner=realpath($ziel);
 if ($ordner===false)
     {
-    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldern];
+    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldern;
     } else
     {
     if (is_writeable($ordner))
         {
-        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[foldere];
+        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$foldere;
         } else
         {
-        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldernw];
+        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldernw;
         }
     }
 ?>
 </td></tr>
 <tr><td bgcolor=#F2F2F2 align=left><font face=verdana size=2>
 ./downloader</td><td bgcolor=#F2F2F2>
-<?
+<?php
 $ziel="./downloader";  // oder "/tmp" oder  "." etc.
 $ordner=realpath($ziel);
 if ($ordner===false)
     {
-    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldern];
+    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldern;
     } else
     {
     if (is_writeable($ordner))
         {
-        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[foldere];
+        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$foldere;
         } else
         {
-        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldernw];
+        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldernw;
         }
     }
 ?>
 </td></tr>
 <tr><td bgcolor=#F2F2F2 align=left><font face=verdana size=2>
 ./dl</td><td bgcolor=#F2F2F2>
-<?
+<?php
 $ziel="./dl";  // oder "/tmp" oder  "." etc.
 $ordner=realpath($ziel);
 if ($ordner===false)
     {
-    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldern];
+    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldern;
     } else
     {
     if (is_writeable($ordner))
         {
-        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[foldere];
+        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$foldere;
         } else
         {
-        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldernw];
+        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldernw;
         }
     }
 ?>
 </td></tr>
 <tr><td bgcolor=#F2F2F2 align=left><font face=verdana size=2>
 ./secure</td><td bgcolor=#F2F2F2>
-<?
+<?php
 $ziel="./secure";  // oder "/tmp" oder  "." etc.
 $ordner=realpath($ziel);
 if ($ordner===false)
     {
-    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldern];
+    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldern;
     } else
     {
     if (is_writeable($ordner))
         {
-        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[foldere];
+        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$foldere;
         } else
         {
-        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldernw];
+        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldernw;
         }
     }
 ?>
 </td></tr>
 <tr><td bgcolor=#F2F2F2 align=left><font face=verdana size=2>
 ./uploader</td><td bgcolor=#F2F2F2>
-<?
+<?php
 $ziel="./uploader";  // oder "/tmp" oder  "." etc.
 $ordner=realpath($ziel);
 if ($ordner===false)
     {
-    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldern];
+    echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldern;
     } else
     {
     if (is_writeable($ordner))
         {
-        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[foldere];
+        echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$foldere;
         } else
         {
-        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[foldernw];
+        echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$foldernw;
         }
     }
 ?>
 </td></tr>
 <tr><td colspan=3 bgcolor=#C0C0C0 background="img/button03.gif" align=center><font face=verdana size=2>
-<b><? echo $lang[textfiles];?></td></tr>
+<b><?php echo $textfiles;?></td></tr>
 
 <tr><td bgcolor=#F2F2F2 align=left><font face=verdana size=2>
 bans.mfh
@@ -555,10 +555,10 @@ bans.mfh
 <?php
 $datei = "secure/bans.mfh";
 if (!is_writeable($datei)) {
-echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[few];
+echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$few;
 }
 else {
-echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[fe];
+echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$fe;
 }
 ?>
 </td></tr>
@@ -568,10 +568,10 @@ reports.mfh
 <?php
 $datei = "secure/reports.mfh";
 if (!is_writeable($datei)) {
-echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[few];
+echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$few;
 }
 else {
-echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[fe];
+echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$fe;
 }
 ?>
 </td></tr>
@@ -581,23 +581,23 @@ settings.mfh
 <?php
 $datei = "secure/settings.mfh";
 if (!is_writeable($datei)) {
-echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$lang[few];
+echo "<img src=\"img/down.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2 color=#FF0000>".$few;
 }
 else {
-echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$lang[fe];
+echo "<img src=\"img/up.png\"></td><td bgcolor=#F2F2F2><font face=verdana size=2>".$fe;
 }
 ?>
 </td></tr>
 <tr><td colspan=3 bgcolor=#F2F2F2 align=center><font face=verdana size=2>
 <form method="get" action="admin.php">
-<input type="button" value="<? echo $lang[rp];?>" onClick="history.go(0)" />
+<input type="button" value="<?php echo $rp;?>" onClick="history.go(0)" />
 <input type="hidden" name="act" value="check" />
 <input type="hidden" name="chmod" value="1" />
 <input type="submit" value="Chmod All to 777" />
 </td></tr></table>
 </form>
-<h3><a href="phpinfo.php"><?php echo($lang[check_3]); ?></a></h3>
-<?
+<h3><a href="phpinfo.php"><?php echo($check_3); ?></a></h3>
+<?php
 echo "</center></td></tr></table><p style=\"margin:3px;text-align:center\">";
 include ("./footer.php");
 die();
@@ -609,11 +609,11 @@ if(isset($_GET['act']) && $_GET['act']=="deloldfiles") {
 <table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><?php echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><?php echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><?php echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><?php echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><?php echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><?php echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><?php echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><?php echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><?php echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><?php echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><?php echo $settings;?></a> |
 </td></tr></table>
 <center><br>
-<h1><? echo $lang[delete];?></h1>
-<?
+<h1><?php echo $delete;?></h1>
+<?php
 //delete old files
 echo "Deleting old files...<BR>";
 $deleteseconds = time() - ($deleteafter * 24 * 60 * 60);
@@ -621,7 +621,7 @@ $dirname = "./files";
 $dh = opendir( $dirname ) or die("couldn't open directory");
 while ( $file = readdir( $dh ) ) {
 if ($file != '.' && $file != '..' && $file != ".htaccess") {
-  $fh=fopen("./files/" . $file ,r);
+  $fh=fopen("./files/" . $file ,"r");
   $filedata= explode('|', fgets($fh));
   if ($filedata[4] < $deleteseconds) {
     $deletedfiles="yes";
@@ -643,7 +643,7 @@ $dirname = "./imgfiles";
 $dh = opendir( $dirname ) or die("couldn't open directory");
 while ( $file = readdir( $dh ) ) {
 if ($file != '.' && $file != '..' && $file != ".htaccess") {
-$fh=fopen("./imgfiles/" . $file ,r);
+$fh=fopen("./imgfiles/" . $file ,"r");
 $filedata= explode('|', fgets($fh));
 if ($filedata[4] < $deleteseconds) {
 $deletedfiles="yes";
@@ -672,18 +672,18 @@ if(isset($_GET['act']) && $_GET['act']=="abuse") {
 <table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><?php echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><?php echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><?php echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><?php echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><?php echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><?php echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><?php echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><?php echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><?php echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><?php echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><?php echo $settings;?></a> |
 </td></tr></table>
 <center><br>
-<h1><? echo $lang[abuse_man];?></h1>
+<h1><?php echo $abuse_man;?></h1>
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="#C0C0C0">
 <tr>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Nr</td>
-<td align=left bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[fname];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[pws];?></b></td>
+<td align=left bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $fname;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $pws;?></b></td>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Uploader</b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[adel];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[ignore];?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $adel;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $ignore;?></b></td>
 </tr>
 <tr><td colspan=5 height=1></td></tr>
 <?php
@@ -696,7 +696,7 @@ foreach($checkreports as $line)
   $thisreport = explode('|', $line);
 $filecrc = $thisreport[0];
 if (file_exists("./files/$filecrc".".mfh")) {
-	$fr=fopen("./files/".$filecrc.".mfh",r);
+	$fr=fopen("./files/".$filecrc.".mfh","r");
 	$foundfile= explode('|', fgets($fr));
 	fclose($fr);
 }
@@ -717,7 +717,7 @@ echo "<td align=center bgcolor=#F9F9F9><a href=\"admin.php?act=abuse&ignore=".$f
 </table>
 <br />
 </center></td></tr></table><p style="margin:3px;text-align:center">
-<?
+<?php
 include ("./footer.php");
 die();
 }
@@ -726,20 +726,20 @@ if(isset($_GET['act']) && $_GET['act']=="files") {
 <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><?php echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><?php echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><?php echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><?php echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><?php echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><?php echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><?php echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><?php echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><?php echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><?php echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><?php echo $settings;?></a> |
 </td></tr></table>
 </center><br />
-  <h1><? echo $lang[files];?> <font size=2>( <a href="auswerten.php">Download-Stats</a> )</font> </h1>
+  <h1><?php echo $files;?> <font size=2>( <a href="auswerten.php">Download-Stats</a> )</font> </h1>
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="#C0C0C0">
 <tr>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Nr</td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[fname];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[size10];?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $fname;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $size10;?></b></td>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Uploader</b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[dloads];?></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[bandwith];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[pws];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[adel];?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $dloads;?></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $bandwith;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $pws;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $adel;?></b></td>
 </tr>
 <tr><td colspan=7 height=1></td></tr>
 <?php
@@ -760,7 +760,7 @@ if ($file{0} != '.') {
   $filecrc = str_replace(".mfh","",$file);
   $filesize = filesize("./storage/". $filecrc);
   $filesize = ($filesize / 1048576);
-  $fh = fopen ("./files/".$file, r);
+  $fh = fopen ("./files/".$file, "r");
   $filedata= explode('|', fgets($fh));
   echo "<tr><td align=center bgcolor=#F9F9F9>".$i."</td><td align=left bgcolor=#F9F9F9><a href=\"". $short .$filedata[0]."\" target=\"_blank\">".$filedata[1]."</a></td><td align=center bgcolor=#F9F9F9>".round($filesize,2)." MB</td>";
   echo "<td align=center bgcolor=#F9F9F9>".$filedata[3]."</td><td align=center bgcolor=#F9F9F9>".$filedata[5]."</td><td align=center style=padding-left:5px bgcolor=#F9F9F9>".round($filesize*$filedata[5],2)." MB</td><td bgcolor=#F9F9F9 align=center>".$filedata[9]."</td><td align=center style=padding-left:5px bgcolor=#F9F9F9><a href=\"admin.php?act=files&delete=".$filecrc."\"><img src=\"img/del1.jpg\" border=0></a></td></tr>";
@@ -790,11 +790,11 @@ $nav_search = $bl->nav($i, $begin_for);
 closedir( $dh );
 echo "</td></tr></table>";
 // An der Stelle wo die Ausgabe erfolgen soll
-echo $lang[pagination]." ".$nav_search . $lang[ftotal] . $i++;
+echo $pagination." ".$nav_search . $ftotal . $i++;
 ?>
 </center>
 </td></tr></table><p style="margin:3px;text-align:center">
-<?
+<?php
 include ("./footer.php");
 die();
 }
@@ -802,7 +802,7 @@ die();
 
 <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <center>
-<font size=4><b><? echo $lang[welcome];?> <? echo $compname ?> <?echo $lang[adminpanel] ?></b></font><br><br>
+<font size=4><b><?php echo $welcome;?> <?php echo $compname ?> <?phpecho $adminpanel ?></b></font><br><br>
 <script LANGUAGE="Javascript" SRC="http://galaxyscripts.com/users/call.php?page=<?php echo base64_encode($scripturl);?>"><!--
 //--></SCRIPT>
 <table  border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -816,18 +816,18 @@ die();
       <td align="center" valign="middle" bgcolor="#FFFFFF">
 <table width=700 cellspacing=0 cellpadding=5 border=0>
 <tr>
-<td width=20% align=center><a href="admin.php"><img src="img/index.gif" width=70 height=70 border=0</a><br><a href="admin.php"><? echo $lang[index];?></a></td>
-<td width=20% align=center><a href="admin.php?act=files"><img src="img/files.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=files"><? echo $lang[files];?></a></td>
-<td width=20% align=center><a href="admin.php?act=image"><img src="img/images.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=image"><? echo $lang[images];?></a></td>
-<td width=20% align=center><a href="admin.php?act=abuse"><img src="img/abuse.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=abuse"><? echo $lang[abuse];?></a></td>
-<td width=20% align=center><a href="admin.php?act=changedlpass"><img src="img/passwort.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=changedlpass"><? echo $lang[master];?></a></td>
-<td width=20% align=center><a href="admin.php?act=info"><img src="img/info.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=info"><? echo $lang[info_1];?></a></td>
+<td width=20% align=center><a href="admin.php"><img src="img/index.gif" width=70 height=70 border=0</a><br><a href="admin.php"><?php echo $index;?></a></td>
+<td width=20% align=center><a href="admin.php?act=files"><img src="img/files.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=files"><?php echo $files;?></a></td>
+<td width=20% align=center><a href="admin.php?act=image"><img src="img/images.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=image"><?php echo $images;?></a></td>
+<td width=20% align=center><a href="admin.php?act=abuse"><img src="img/abuse.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=abuse"><?php echo $abuse;?></a></td>
+<td width=20% align=center><a href="admin.php?act=changedlpass"><img src="img/passwort.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=changedlpass"><?php echo $master;?></a></td>
+<td width=20% align=center><a href="admin.php?act=info"><img src="img/info.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=info"><?php echo $info_1;?></a></td>
 </tr><tr>
-<td width=20% align=center><a href="admin.php?act=deloldfiles"><img src="img/delete.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a></td>
-<td width=20% align=center><a href="admin.php?act=bans"><img src="img/ban.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=bans"><? echo $lang[bans];?></a></td>
-<td width=20% align=center><a href="settings.php"><img src="img/settings.gif" width=70 height=70 border=0</a><br><a href="settings.php"><? echo $lang[settings];?></a></td>
-<td width=20% align=center><a href="admin.php?act=check"><img src="img/check.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=check"><? echo $lang[check];?></a></td>
-<td width=20% align=center><a href="admin.php?act=logout"><img src="img/logout.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=logout"><? echo $lang[logout];?></a></td>
+<td width=20% align=center><a href="admin.php?act=deloldfiles"><img src="img/delete.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=deloldfiles"><?php echo $delete;?></a></td>
+<td width=20% align=center><a href="admin.php?act=bans"><img src="img/ban.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=bans"><?php echo $bans;?></a></td>
+<td width=20% align=center><a href="settings.php"><img src="img/settings.gif" width=70 height=70 border=0</a><br><a href="settings.php"><?php echo $settings;?></a></td>
+<td width=20% align=center><a href="admin.php?act=check"><img src="img/check.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=check"><?php echo $check;?></a></td>
+<td width=20% align=center><a href="admin.php?act=logout"><img src="img/logout.gif" width=70 height=70 border=0</a><br><a href="admin.php?act=logout"><?php echo $logout;?></a></td>
 </td></tr></table>
        </td>
       <td width="24" background="img/cen_rig.gif"><img src="img/cen_rig.gif" width="24" height="11"></td>
@@ -860,11 +860,11 @@ if ($file != '.' && $file != '..' && $file != '.htaccess') {
   $filecrc = str_replace(".mfh","",$file);
   $filesize = filesize("./storage/". $filecrc);
   $filesize = ($filesize / 1048576);
-  $fh = fopen ("./files/".$file, r);
+  $fh = fopen ("./files/".$file, "r");
   $filedata= explode('|', fgets($fh));
-  $tsize = $tsize + round($filesize,2);
-  $tbandwidth = $tbandwidth + round($filesize*$filedata[5],2);
-  $tdownload = $tdownload + round($filedata[5],2);
+  $tsize =+ round($filesize,2);
+  $tbandwidth =+ round($filesize*$filedata[5],2);
+  $tdownload =+ round($filedata[5],2);
   $xzal=$i++;
   fclose ($fh);
 
@@ -873,44 +873,35 @@ if ($file != '.' && $file != '..' && $file != '.htaccess') {
 }
 ?>
 
-<?
+<?php
 function ZahlenFormatieren($Wert)
 {
-    if($Wert > 1099511627776)
-    {
+    if($Wert > 1099511627776){
         $Wert = number_format($Wert/1099511627776, 2, ",", ".")." TB";
-    }
-    elseif($Wert > 1073741824)
-    {
+    }elseif($Wert > 1073741824){
         $Wert = number_format($Wert/1073741824, 2, ",", ".")." GB";
-    }
-    elseif($Wert > 1048576)
-    {
+    }elseif($Wert > 1048576){
         $Wert = number_format($Wert/1048576, 2, ",", ".")." MB";
-    }
-    elseif($Wert > 1024)
-    {
+    }elseif($Wert > 1024){
         $Wert = number_format($Wert/1024, 2, ",", ".")." kB";
-    }
-    else
-    {
+    }else{
         $Wert = number_format($Wert, 2, ",", ".")." Bytes";
     }
-
-    return $Wert;
+	
+	echo "$Wert";
 }
 
-$frei = disk_free_space("./");
-$insgesamt = disk_total_space("./");
+$frei = disk_free_space(".");
+$insgesamt = disk_total_space(".");
 $belegt = $insgesamt-$frei;
 $prozent_belegt = 100*$belegt/$insgesamt;
 ?>
 </td><td>
 <center><table width=340 border=0 cellspacing=1 cellpadding=3 bgcolor=#C0C0C0>
-<tr><td bgcolor=#F4F4F4><? echo $lang[diskspace];?></td><td bgcolor=#F4F4F4><?=ZahlenFormatieren($insgesamt);?></td></tr>
-<tr><td bgcolor=#F4F4F4><? echo $lang[in_use];?></td><td bgcolor=#F4F4F4><?=ZahlenFormatieren($belegt);?>    (<?=round($prozent_belegt,"2");?> %)</td></tr>
-<tr><td colspan=2 bgcolor=#F4F4F4 align=center><center><img src="ratingbar.php?rating=<?=round($prozent_belegt,"2");?>" border="0"></td></tr>
-<tr><td bgcolor=#F4F4F4><? echo $lang[free];?></td><td bgcolor=#F4F4F4><?=ZahlenFormatieren($frei);?>
+<tr><td bgcolor=#F4F4F4><?php echo $diskspace;?></td><td bgcolor=#F4F4F4><?php ZahlenFormatieren($insgesamt);?></td></tr>
+<tr><td bgcolor=#F4F4F4><?php echo $in_use;?></td><td bgcolor=#F4F4F4><?php ZahlenFormatieren($belegt);?>    (<?php=round($prozent_belegt,"2");?> %)</td></tr>
+<tr><td colspan=2 bgcolor=#F4F4F4 align=center><center><img src="ratingbar.php?rating=<?php round($prozent_belegt,"2");?>" border="0"></td></tr>
+<tr><td bgcolor=#F4F4F4><?php echo $free;?></td><td bgcolor=#F4F4F4><?php ZahlenFormatieren($frei);?>
 </td></tr></table></center>
 
 </td></tr></table>
@@ -926,16 +917,16 @@ $prozent_belegt = 100*$belegt/$insgesamt;
 
 </center>
 </td></tr></table><p style="margin:3px;text-align:center">
-<?
+<?php
 } else {
 ?>
 <center>
 <table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><center>
 <h1><center>Admin Login</center></h1><br />
-<?
+<?php
 $d=$act;
 if ($d=="logout")
-  echo "<img src=\"img/up.png\"> <b><font color=#008000>".$lang[adminlogout]."</b></font> <p>";
+  echo "<img src=\"img/up.png\"> <b><font color=#008000>".$adminlogout."</b></font> <p>";
 else
   echo ""; ?>
   <center>
@@ -948,7 +939,7 @@ else
     <tr>
       <td width="16" background="img/cen_lef.gif"><img src="img/cen_lef.gif" width="16" height="11"></td>
       <td align="center" valign="middle" bgcolor="#FFFFFF">
-<form action="admin.php?act=login" method="post"><img src="img/enc.gif" border="0" width="16" height="16"> <? echo $lang[adminlogin];?>
+<form action="admin.php?act=login" method="post"><img src="img/enc.gif" border="0" width="16" height="16"> <?php echo $adminlogin;?>
 <input type="password" name="passwordx">
 <input type="submit" value="Login">
        </td>
@@ -963,6 +954,6 @@ else
 <br /><br />
 </form></center>
 <?php }
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 ?>
