@@ -21,9 +21,9 @@ $bans=file("./secure/bans.mfh");
 foreach($bans as $line)
 {
   if ($line==$_SERVER['REMOTE_ADDR']){
-?> <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top> <?
+?> <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top> <?php
     echo "$lang[younallow]";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
     include("./footer.php");
     die();
   }
@@ -48,9 +48,9 @@ if (file_exists("./files/".$filecrctxt)) {
 }
 if($validdownload==0) {
 ?> <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
-<?
+<?php
     echo "<center>$lang[inlink]</center>";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
     include("./footer.php");
     die();
 }

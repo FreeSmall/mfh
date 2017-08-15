@@ -31,9 +31,9 @@ foreach($bans as $line)
 {
   if ($line==$_SERVER['REMOTE_ADDR']){
 ?>
-<center><table style='margin-top:20px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?
-    echo "$lang[younallow]";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+<center><table style='margin-top:20px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?php
+    echo "$younallow";
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
     include("./footer.php");
     die();
   }
@@ -44,18 +44,18 @@ if(isset($_GET['file'])) {
 } else {
 ?>
 
-<?
+<?php
 ?>
-<center><table style='margin-top:20px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?
-  echo "$lang[inlink] <br />";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+<center><table style='margin-top:20px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?php
+  echo "$inlink <br />";
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
   include("./footer.php");
   die();
 }
 
 $foundfile=0;
 if (file_exists("./files/".$filecrc.".mfh")) {
-	$fh1=fopen("./files/".$filecrc.".mfh",r);
+	$fh1=fopen("./files/".$filecrc.".mfh", "r");
 	$foundfile= explode('|', fgets($fh1));
 	fclose($fh1);
 }
@@ -73,7 +73,7 @@ $filecrc = $_GET['file'];
 $filecrctxt = $filecrc . ".mfh";
 $passcode = $_GET['del'];
 if (file_exists("./files/".$filecrctxt)) {
-	$fh2=fopen ("./files/".$filecrctxt,r);
+	$fh2=fopen ("./files/".$filecrctxt,"r");
 	$thisline= explode('|', fgets($fh2));
 	if($thisline[2] == $passcode){
 $deleted=1;
@@ -86,58 +86,58 @@ fclose($fh2);
 if($deleted==1){
 unlink("./storage/".$_GET['file']);
 ?>
-<center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?
-echo "<center><b>$lang[ufwd]</b></center><br />";
+<center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?php
+echo "<center><b>$ufwd</b></center><br />";
 ?> <META HTTP-EQUIV="Refresh"
-      CONTENT="10; URL=index.php"> <?
-include("./squareads.php");?><p><?
+      CONTENT="10; URL=index.php"> <?php
+include("./squareads.php");?><p><?php
 
-echo "<center><b>$lang[uwbr] </center></b><br />";
+echo "<center><b>$uwbr </center></b><br />";
 } else {
-?><center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?
-echo "<center><b>$lang[indlink2] </b></center><br />";
+?><center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?php
+echo "<center><b>$indlink2 </b></center><br />";
 ?> <META HTTP-EQUIV="Refresh"
-      CONTENT="10; URL=index.php"> <?
-include("./squareads.php");?><p><?
+      CONTENT="10; URL=index.php"> <?php
+include("./squareads.php");?><p><?php
 
-echo "<center><b>$lang[uwbr] </center></b><br />";
+echo "<center><b>$uwbr </center></b><br />";
 }
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 
 }
 
 if($foundfile==0) {
-?> <center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?
-  echo "<center><b>$lang[inlink]</center></b><br />";
+?> <center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?php
+  echo "<center><b>$inlink</center></b><br />";
 ?> <META HTTP-EQUIV="Refresh"
-      CONTENT="10; URL=index.php"> <?
-include("./squareads.php");?><p><?
+      CONTENT="10; URL=index.php"> <?php
+include("./squareads.php");?><p><?php
 
-echo "<center><b>$lang[uwbr]</center></b><br />";
-  ?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+echo "<center><b>$uwbr</center></b><br />";
+  ?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
   die();
 }
 
 if(isset($foundfile[7]) && $foundfile[7]!=md5("") && (!isset($_POST['pass']) || $foundfile[7] != md5($_POST['pass']))){
 ?>  <center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top>
- <p> <?
-echo "<form action=\"download.php?file=".$foundfile[0]."\" method=\"post\"><center><b>$lang[pw2] : </center></b><p><center><input type=\"password\" name=\"pass\"><p><center><input value=\"Enter\" type=\"submit\" /></form>";
-?><p><center><? echo $lang[petc];?></center><?
-?><p><p><?
+ <p> <?php
+echo "<form action=\"download.php?file=".$foundfile[0]."\" method=\"post\"><center><b>$pw2 : </center></b><p><center><input type=\"password\" name=\"pass\"><p><center><input value=\"Enter\" type=\"submit\" /></form>";
+?><p><center><?php echo $petc;?></center><?php
+?><p><p><?php
 include("./bottomads.php");
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 }
 ?>
 <center>
 <table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
- <? include("./ads.php");  ?>
- <center><img src="img/pic_download.gif" border=0 width=24 height=24> <font size=5><b><? echo $lang[dl_a_file];?></b> <img src="img/pic_download_1.gif" border=0 width=24 height=24></font><br>
-<?
+ <?php include("./ads.php");  ?>
+ <center><img src="img/pic_download.gif" border=0 width=24 height=24> <font size=5><b><?php echo $dl_a_file;?></b> <img src="img/pic_download_1.gif" border=0 width=24 height=24></font><br>
+<?php
 
 $filesize = filesize("./storage/".$foundfile[0]);
 $filesize = $filesize / 1048576;
@@ -220,10 +220,10 @@ window.onload=startTimer
 
 
 <center><span id="SessionTimeCount"></span></center><br />
- <?
+ <?php
 
 	    include("./bottomads.php");
-?><td><tr><table><?
+?><td><tr><table><?php
        include("./footer.php");
       die();
 
@@ -252,7 +252,7 @@ $check1 = "MB";
 
 ?>
 <p>
-<?
+<?php
 $quantity= $foundfile[5] * $fsizetxt;
 $d=$descriptionoption;
 switch ($d)
@@ -261,7 +261,7 @@ case false:
  $test="";
   break;
 case true:
-  $test= "$lang[fd6]";
+  $test= "$fd6";
   break;
 default:
   echo ""; }
@@ -293,15 +293,15 @@ echo '<tr>';
 echo '<td width="16" background="img/cen_lef.gif"><img src="img/cen_lef.gif" width="16" height="11"></td>';
 echo '<td align="center" valign="middle" bgcolor="#FFFFFF">';
 
-echo "<img src=\"img/warning.gif\" border=0 width=12 height=12> <a href='report.php?file=$foundfile[0]' style=color:#FF0000>".$lang[rtf]."</a><br><br>";
+echo "<img src=\"img/warning.gif\" border=0 width=12 height=12> <a href='report.php?file=$foundfile[0]' style=color:#FF0000>".$rtf."</a><br><br>";
 
 echo "<table cellspacing=1 cellpadding=2 border=0 bgcolor=#C0C0C0>";
-echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$lang[fn6].":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$foundfile[1] ."</td></tr>";
-echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$lang[fbu].":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$quantity ." ". $check1."</td></tr>";
-echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$lang[dl_ip].":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$foundfile[3]."</td></tr>";
-echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$lang[dl_filesize].":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>". $fsizetxt."</td></tr>";
-echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$lang[dl_file_dl].":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>". $foundfile[5]." ".$lang[dl_file_dl1]."</td></tr>";
-echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$lang[dl_last_dl].": </td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".date('Y-m-d G:i', $foundfile[4])."</td></tr>\n";
+echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$fn6.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$foundfile[1] ."</td></tr>";
+echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$fbu.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$quantity ." ". $check1."</td></tr>";
+echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_ip.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$foundfile[3]."</td></tr>";
+echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_filesize.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>". $fsizetxt."</td></tr>";
+echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_file_dl.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>". $foundfile[5]." ".$dl_file_dl1."</td></tr>";
+echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_last_dl.": </td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".date('Y-m-d G:i', $foundfile[4])."</td></tr>\n";
 
 if(isset($foundfile[6])){ echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">$test</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>$test4</td></tr>"; }
 $randcounter = rand(100,999);
@@ -317,7 +317,7 @@ echo "</td></tr></table>";
       <td width="24" height="16"><img src="img/bot_rig.gif" width="24" height="16"></td>
     </tr>
   </table>
-  <?
+  <?php
 
 $randcounter = rand(100,999);
 ?>
@@ -351,9 +351,9 @@ window.location='<?php echo $scripturl . "download.php?file=" .$foundfile[0]; ?>
 <?php
 
 if($downloadtimer == 0) {
-echo "<input type=\"button\" value=\"".$lang[dl_file_now]."\" onClick=window.location=\"".$scripturl. "download2.php?a=" . $filecrc . "&b=" . md5($foundfile[2].$_SERVER['REMOTE_ADDR'])."\">";
+echo "<input type=\"button\" value=\"".$dl_file_now."\" onClick=window.location=\"".$scripturl. "download2.php?a=" . $filecrc . "&b=" . md5($foundfile[2].$_SERVER['REMOTE_ADDR'])."\">";
 } else { ?>
-<? echo $lang[nenjava];?>
+<?php echo $nenjava;?>
 
 <?php } ?>
 </div>
@@ -366,11 +366,11 @@ function countdown()
   x<?php echo $randcounter; ?>--;
   if(x<?php echo $randcounter; ?> == 0)
   {
-document.getElementById("dl").innerHTML = '<input type="submit" value="<? echo $lang[dl_file_now];?>" onClick="checksubmit()" onClick="window.location=\'<?php echo $scripturl . "download2.php?a=" . $filecrc . "&b=" . md5($foundfile[2].$_SERVER['REMOTE_ADDR']) ?>\'">';
+document.getElementById("dl").innerHTML = '<input type="submit" value="<?php echo $dl_file_now;?>" onClick="checksubmit()" onClick="window.location=\'<?php echo $scripturl . "download2.php?a=" . $filecrc . "&b=" . md5($foundfile[2].$_SERVER['REMOTE_ADDR']) ?>\'">';
   }
   if(x<?php echo $randcounter; ?> > 0)
   {
- document.getElementById("dl").innerHTML = '<? echo $lang[dl_ticket];?><br><? echo $lang[dl_file_now1];?> <font color=#FF0000><b> '+x<?php echo $randcounter; ?>+'</b></font> <? echo $lang[dl_file_now2];?>...';
+ document.getElementById("dl").innerHTML = '<?php echo $dl_ticket;?><br><?php echo $dl_file_now1;?> <font color=#FF0000><b> '+x<?php echo $randcounter; ?>+'</b></font> <?php echo $dl_file_now2;?>...';
    setTimeout('countdown()',1000);
   }
  }
@@ -384,7 +384,7 @@ include("./bottomads.php");
 <?php
 include("./footer.php");
 ?>
-<?
+<?php
         $foo = '';
 
         if (!empty($_GET))
