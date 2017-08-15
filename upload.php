@@ -42,16 +42,16 @@ foreach($bans as $line)
 {
   if ($line==$rand2."\n"){
 ?> <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
-<?
+<?php
     echo "$lang[noallow]";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
     include("./footer.php");
     die();
   }
   if ($line==$_SERVER['REMOTE_ADDR']."\n"){
 ?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
-   <? echo "$lang[nallow]";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+   <?php echo "$lang[nallow]";
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
     include("./footer.php");
     die();
   }
@@ -64,9 +64,9 @@ foreach($allowedtypes as $ext) {
     $allowed = 1;
 }
 if($allowed==0) {
-?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?
+?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
    echo "$lang[itype]";
-   ?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+   ?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
    die();
 }
@@ -78,9 +78,9 @@ foreach($categories as $cat) {
   if($_POST['category']==$cat || $_POST['category'] = ""){ $validcat = 1; }
 }
 if($validcat==0) {
-?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?
+?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
    echo "$lang[icat]";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
    include("./footer.php");
    die();
 }
@@ -88,9 +88,9 @@ $cat = $_POST['category'];
 } else { $cat = ""; }
 
 if($filesize==0) {
-?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?
+?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
 echo "$lang[dpick]";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 }
@@ -98,9 +98,9 @@ die();
 $filesize = $filesize / 1048576;
 
 if($filesize > $maxfilesize) {
-?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?
+?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
 echo "$lang[tlarge]";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 }
@@ -142,16 +142,16 @@ move_uploaded_file($_FILES['upfile']['tmp_name'], $movefile);
 ?>
 <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 
-<?
+<?php
 include("./ads.php");
 echo "<center><b> $lang[yupfile] </b></center><br />";
 echo "<center> $lang[udownfile] </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "\">". $scripturl . "$short" . $rand2 . "</a><br />";
 echo "<p><center> $lang[udeletefile] </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . " \">". $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . "</a><br />";
-echo "<p><center> $lang[uremfile]."; ?><p><?
+echo "<p><center> $lang[uremfile]."; ?><p><?php
 include("./bottomads.php");
 ?>
   </td></tr></table></center>
-<?
+<?php
 
 include("./footer.php");
 ?>
