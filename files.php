@@ -25,24 +25,24 @@ if(in_array($language, $LANGUAGE_LIST)) {
 if($enable_filelist==false){
 ?>
 <center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top>
-<h1><center><? echo $lang[filelist];?></h1><?
-echo "$lang[fldis]";?>
-<tr><td colspan=5 height=1></td></tr><?
-echo "$lang[disfiles]";
-?></table></p></center></td></tr></table><p style="margin:3px;text-align:center"><?
+<h1><center><?php echo $filelist;?></h1><?php
+echo "$fldis";?>
+<tr><td colspan=5 height=1></td></tr><?php
+echo "$disfiles";
+?></table></p></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 }
 ?>
 <center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top>
-<h1><center><? echo "$lang[filelist]";?></h1>
+<h1><center><?php echo "$filelist";?></h1>
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="#C0C0C0">
 <tr>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Nr</td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[fname];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[size10];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[dloads];?></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[ldload];?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $fname;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $size10;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $dloads;?></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $ldload;?></b></td>
 </tr>
 <tr><td colspan=5 height=1></td></tr>
 <?php
@@ -63,17 +63,17 @@ if ($file{0} != '.') {
   $filecrc = str_replace(".mfh","",$file);
   $filesize = filesize("./storage/". $filecrc);
   $filesize = ($filesize / 1048576);
-  $fh = fopen ("./files/".$file, r);
+  $fh = fopen ("./files/".$file, "r");
   $filedata= explode('|', fgets($fh));
   echo "<tr><td align=center bgcolor=#F9F9F9>".$i."</td><td align=left bgcolor=#F9F9F9><a href=\"". $short .$filedata[0]."\" target=\"_blank\">".$filedata[1]."</a></td><td align=center bgcolor=#F9F9F9>".round($filesize,2)." MB</td>";
   echo "<td align=center bgcolor=#F9F9F9>".$filedata[5]."</td><td align=center style=padding-left:5px bgcolor=#F9F9F9>".date('Y-m-d G:i', $filedata[4])." </td></tr>";
-  $tsize = $tsize + round($filesize,2);
-  $tbandwidth = $tbandwidth + round($filesize*$filedata[5],2);
-  $tdownload = $tdownload + round($filedata[5],2);
+  $tsize =+ round($filesize,2);
+  $tbandwidth =+ round($filesize*$filedata[5],2);
+  $tdownload =+ round($filedata[5],2);
   fclose ($fh);
 }
 }
-$gesamt++;
+$gesamt =+ 1;
 }
 // Einbinden der Blätterklasse ; evtl. Pfad anpassen
 // Include the pagination-class
@@ -94,9 +94,9 @@ $nav_search = $bl->nav($i, $begin_for);
 closedir( $dh );
 echo "</td></tr></table></center>";
 // An der Stelle wo die Ausgabe erfolgen soll
-echo $lang[pagination]." ".$nav_search . $lang[ftotal] . $i++;
+echo $pagination." ".$nav_search . $ftotal . $i++;
 ?>
 </center>
-</p></center></td></tr></table><p style="margin:3px;text-align:center"><?
+</p></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 ?>
