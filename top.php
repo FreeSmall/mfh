@@ -24,24 +24,24 @@ if(in_array($language, $LANGUAGE_LIST)) {
 if($topten==false){
 ?>
 <center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top>
-<h1><center><? echo $lang[topten];?></h1><?
-echo "$lang[fdis10]";?>
-<tr><td colspan=5 height=1></td></tr><?
-echo "$lang[disabled10]";
-?></table></p></center></td></tr></table><p style="margin:3px;text-align:center"><?
+<h1><center><?php echo $topten;?></h1><?php
+echo "$fdis10";?>
+<tr><td colspan=5 height=1></td></tr><?php
+echo "$disabled10";
+?></table></p></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 }
 ?>
 <center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top>
-<h1><center><? echo $lang[topten];?></h1>
+<h1><center><?php echo $topten;?></h1>
 <p><table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="#C0C0C0">
 <tr>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Nr</b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[fname];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[dloads];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[size10];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[ldload];?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $fname;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $dloads;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $size10;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><?php echo $ldload;?></b></td>
 </tr>
 <tr><td colspan=5 height=1></td></tr>
 <?php
@@ -53,7 +53,7 @@ else
 if(isset($_GET['act'])){$act = $_GET['act'];}else{$act = "null";}
 include("./config.php");
 if($topten == false){
-echo "$lang[fdis10]";
+echo "$fdis10";
 die();
 }
 $order = array();
@@ -121,6 +121,6 @@ $i++;
 }
 ?>
 
-</table></p></center></td></tr></table><p style="margin:3px;text-align:center"><?
+</table></p></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 ?>
