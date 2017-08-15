@@ -119,11 +119,11 @@ $sizehosted = round($sizehosted/1024/1024,2);
 
 if(isset($allowedtypes)){ //get allowed filetypes.
   $types = implode(", ", $allowedtypes);
-  $filetypes = "<b>$lang[allfile]</b> ".$types."<br /><br />";
+  $filetypes = "<b>$allfile</b> ".$types."<br /><br />";
 } else { $filetypes = ""; }
 
 if(isset($categories)){ //get categories
-  $categorylist = "$lang[cat2]: <select name=\"category\">";
+  $categorylist = "$cat2: <select name=\"category\">";
   foreach($categories as $category){
     $categorylist .= "<option value=\"".$category."\">".$category."</option>";
   }
