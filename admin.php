@@ -125,7 +125,7 @@ echo "</tr>";
 fclose ($fh);
 }
 }
-$gesamt++;
+$gesamt =+ 1;
 }
 // Einbinden der Blätterklasse ; evtl. Pfad anpassen
 // Include the pagination-class
