@@ -49,7 +49,7 @@ list($savedip,$savedtime) = explode('|',$line);
 
 
 if($youcantdownload==1) {
-?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?
+?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
 echo "<h1><center>Upload Time Limit</center></h1>";
 	    ?><script type="text/javascript">
 
@@ -91,11 +91,11 @@ window.onload=startTimer
 
 
 <center><span id="SessionTimeCount"></span></center><br /><br /><br /><br />
- <?
+ <?php
 
 	    include("./bottomads.php");
 
-?><td><tr><table><?
+?><td><tr><table><?php
  include("./footer.php");
       die();
 
