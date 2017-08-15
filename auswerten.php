@@ -33,7 +33,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==md5(md5($adminpass))
 
 $filecrctxt = $filecrc . ".txt";
 if (file_exists("./dl/" . $filecrctxt)) {
-	$fh = fopen("./dl/" . $filecrctxt, r);
+	$fh = fopen("./dl/" . $filecrctxt, "r");
 	$filedata= explode('|', fgets($fh));
          }
 if(isset($_GET['delete'])) {
@@ -43,20 +43,20 @@ unlink("./dl/".$_GET['delete'].".txt");
 <center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top>
 <center>
 <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=#CBD6F3><tr><td background="img/bg.png" align=absmiddle valign=absmiddle>
-<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $lang[logout];?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $lang[index];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $lang[files];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $lang[images];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $lang[master];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $lang[abuse];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $lang[delete];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $lang[bans];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $lang[check];?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $lang[info_1];?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $lang[settings];?></a> |
+<font color=#C0C0C0>| <img src="img/blue.gif"> <a href="admin.php?act=logout"><? echo $logout;?></a> | <img src="img/blue.gif"> <a href="admin.php"><? echo $index;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=files"><? echo $files;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=image"><? echo $images;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=changedlpass"><? echo $master;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=abuse"><? echo $abuse;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=deloldfiles"><? echo $delete;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=bans"><? echo $bans;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=check"><? echo $check;?></a> | <img src="img/blue.gif"> <a href="admin.php?act=info"><? echo $info_1;?></a> | <img src="img/blue.gif"> <a href="settings.php"><? echo $settings;?></a> |
 </td></tr></table>
 </center><br />
-<h1>Downloader <font size=2>( <a href="admin.php?act=files"><? echo $lang[dlback];?></a> )</font> </h1>
+<h1>Downloader <font size=2>( <a href="admin.php?act=files"><? echo $dlback;?></a> )</font> </h1>
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="#C0C0C0">
 <tr>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Nr</td>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>IP</b></td>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Remote</b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[dldate];?></b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[dltime];?></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[fname];?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $dldate;?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $dltime;?></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $fname;?></b></td>
 <td align=center bgcolor=#EBEBEB background="img/bg.png"><b>Referer</b></td>
-<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $lang[adel];?></b></td>
+<td align=center bgcolor=#EBEBEB background="img/bg.png"><b><? echo $adel;?></b></td>
 </tr>
 <tr><td colspan=8 height=1></td></tr>
 <?php
@@ -71,7 +71,7 @@ if ($file{0} != '.') {
   $xzal=$i++;
   if($xzal>= $start && $xzal<$start+$pps3) {
   $filecrc = str_replace(".txt","",$file);
-  $fh = fopen ("./dl/".$file, r);
+  $fh = fopen ("./dl/".$file, "r");
   $filedata= explode('|', fgets($fh));
   echo "<tr><td align=center bgcolor=#F9F9F9>".$i."</td>";
   echo "<td align=left bgcolor=#F9F9F9>".$filedata[0]."</td>";
@@ -84,7 +84,7 @@ if ($file{0} != '.') {
   fclose ($fh);
 }
 }
-$gesamt++;
+$gesamt =+ 1;
 }
 // Einbinden der Blätterklasse ; evtl. Pfad anpassen
 // Include the pagination-class
@@ -105,7 +105,7 @@ $nav_search = $bl->nav($i, $begin_for);
 closedir( $dh );
 echo "</table>";
 // An der Stelle wo die Ausgabe erfolgen soll
-echo $lang[pagination]." ".$nav_search . $lang[dltotal] . $i++;
+echo $pagination." ".$nav_search . $dltotal . $i++;
 ?>
  </td></tr></table></center>
 <?
@@ -117,7 +117,7 @@ echo $lang[pagination]." ".$nav_search . $lang[dltotal] . $i++;
 <?
 $d=$act;
 if ($d=="logout")
-  echo "<img src=\"img/up.png\"> <b><font color=#008000>".$lang[adminlogout]."</b></font> <p>";
+  echo "<img src=\"img/up.png\"> <b><font color=#008000>".$adminlogout."</b></font> <p>";
 else
   echo ""; ?>
   <center>
@@ -130,7 +130,7 @@ else
     <tr>
       <td width="16" background="img/cen_lef.gif"><img src="img/cen_lef.gif" width="16" height="11"></td>
       <td align="center" valign="middle" bgcolor="#FFFFFF">
-<form action="admin.php?act=login" method="post"><img src="img/enc.gif" border="0" width="16" height="16"> <? echo $lang[adminlogin];?>
+<form action="admin.php?act=login" method="post"><img src="img/enc.gif" border="0" width="16" height="16"> <? echo $adminlogin;?>
 <input type="password" name="passwordx">
 <input type="submit" value="Login">
        </td>
