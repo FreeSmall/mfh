@@ -764,13 +764,13 @@ if ($file{0} != '.') {
   $filedata= explode('|', fgets($fh));
   echo "<tr><td align=center bgcolor=#F9F9F9>".$i."</td><td align=left bgcolor=#F9F9F9><a href=\"". $short .$filedata[0]."\" target=\"_blank\">".$filedata[1]."</a></td><td align=center bgcolor=#F9F9F9>".round($filesize,2)." MB</td>";
   echo "<td align=center bgcolor=#F9F9F9>".$filedata[3]."</td><td align=center bgcolor=#F9F9F9>".$filedata[5]."</td><td align=center style=padding-left:5px bgcolor=#F9F9F9>".round($filesize*$filedata[5],2)." MB</td><td bgcolor=#F9F9F9 align=center>".$filedata[9]."</td><td align=center style=padding-left:5px bgcolor=#F9F9F9><a href=\"admin.php?act=files&delete=".$filecrc."\"><img src=\"img/del1.jpg\" border=0></a></td></tr>";
-  $tsize = $tsize + round($filesize,2);
-  $tbandwidth = $tbandwidth + round($filesize*$filedata[5],2);
-  $tdownload = $tdownload + round($filedata[5],2);
+  $tsize =+ round($filesize,2);
+  $tbandwidth =+ round($filesize*$filedata[5],2);
+  $tdownload =+ round($filedata[5],2);
   fclose ($fh);
 }
 }
-$gesamt++;
+$gesamt =+ 1;
 }
 // Include the pagination-class
 include("bl.php");
