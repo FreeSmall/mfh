@@ -22,24 +22,24 @@ if(in_array($language, $LANGUAGE_LIST)) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title><? echo $compname . " - " . $slogan ;?></title>
+<title><?php echo $compname . " - " . $slogan ;?></title>
 <meta name="description" content="Free File Hosting Script">
 <meta name="author" content="Inekai">
 <meta name="keywords" content="File, Hosting, Script, Free">
 <meta name="expire" content="never">
-<link rel="stylesheet" type="text/css" href="css/<? echo $style ?> ">
+<link rel="stylesheet" type="text/css" href="css/<?php echo $style ?> ">
 </head><body>
 <center><table style="margin-top:10px;width:790px;height:2;">
 <tr><td style="padding-bottom:10px;" height="1">
 <a class="headlink" href="index.php">
 <p style="margin:0px;">
-<span style="font-size:32px;color:#FFFFFF;"><? echo $compname ?></span></p></a></td>
+<span style="font-size:32px;color:#FFFFFF;"><?php echo $compname ?></span></p></a></td>
 <td align=right valign=bottom style="padding-bottom:10px;color:#ffffff" height="1">
-<a class="toplinks" href="index.php"><? echo $lang[top_upload];?></a>&nbsp;|&nbsp;
-<a class="toplinks" href="index.php?page=img"><? echo $lang[top_imageup];?></a>&nbsp;|&nbsp;
-<a class="toplinks" href="files.php"><? echo $lang[top_files];?></a>&nbsp;|&nbsp;
-<a class="toplinks" href="index.php?page=tos"><? echo $lang[top_tos];?></a> &nbsp;|&nbsp;
-<a class="toplinks" href="index.php?page=faq"><? echo $lang[top_faq];?></a>&nbsp;|&nbsp;
-<a class="toplinks" href="top.php"><? echo $lang[top_top];?></a> &nbsp;|&nbsp;
-<a class="toplinks" href="admin.php"><? echo $lang[top_admin];?></a>
+<a class="toplinks" href="index.php"><?php echo $top_upload;?></a>&nbsp;|&nbsp;
+<a class="toplinks" href="index.php?page=img"><?php echo $top_imageup;?></a>&nbsp;|&nbsp;
+<a class="toplinks" href="files.php"><?php echo $top_files;?></a>&nbsp;|&nbsp;
+<a class="toplinks" href="index.php?page=tos"><?php echo $top_tos;?></a> &nbsp;|&nbsp;
+<a class="toplinks" href="index.php?page=faq"><?php echo $top_faq;?></a>&nbsp;|&nbsp;
+<a class="toplinks" href="top.php"><?php echo $top_top;?></a> &nbsp;|&nbsp;
+<a class="toplinks" href="admin.php"><?php echo $top_admin;?></a>
 </td></td></tr></center>
