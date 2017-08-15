@@ -21,7 +21,7 @@ if(in_array($language, $LANGUAGE_LIST)) {
 ?>
 
 <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
-<font size=2 color=#808080><b>&nbsp;&nbsp;<?php echo $lang[faq]; ?></b></font>
+<font size=2 color=#808080><b>&nbsp;&nbsp;<?php echo $faq; ?></b></font>
 <br>
 
  <div align="center"><center>
@@ -40,9 +40,9 @@ bgcolor="#004080">
 <td width="10"></td>
 <td width="100%" align="left">
 <p align="left"><small><font color="#FFFFFF" face="Arial">
-<b><?php echo $lang[faq1]; ?></b>
+<b><?php echo $faq1; ?></b>
 <hr noshade size=1 width=100% color=#8080FF>
-<?php echo $lang[faq1a]; ?> <?php echo $maxfilesize; ?> MB.</font></small></td>
+<?php echo $faq1a; ?> <?php echo $maxfilesize; ?> MB.</font></small></td>
 <td width="10"></td>
 </tr>
 <tr>
@@ -71,9 +71,9 @@ bgcolor="#004080">
 <td width="10"></td>
 <td width="100%" align="left">
 <p align="left"><small><font color="#FFFFFF" face="Arial">
-<b><?php echo $lang[faq2]; ?></b>
+<b><?php echo $faq2; ?></b>
 <hr noshade size=1 width=100% color=#8080FF>
-<?php echo $lang[faq2a]; ?> <?php echo $deleteafter; ?> <?php echo $lang[faq2b]; ?></font></small></td>
+<?php echo $faq2a; ?> <?php echo $deleteafter; ?> <?php echo $faq2b; ?></font></small></td>
 <td width="10"></td>
 </tr>
 <tr>
@@ -102,9 +102,9 @@ bgcolor="#004080">
 <td width="10"></td>
 <td width="100%" align="left">
 <p align="left"><small><font color="#FFFFFF" face="Arial">
-<b><?php echo $lang[faq3]; ?></b>
+<b><?php echo $faq3; ?></b>
 <hr noshade size=1 width=100% color=#8080FF>
-<?php echo $lang[faq3a]; ?> <?php echo $uploadtimelimit; ?> <?php echo $lang[faq3b]; ?> <?php echo $lang[faq3c]; ?> <?php echo $uploadtimelimit; ?> <?php echo $lang[faq3d]; ?>
+<?php echo $faq3a; ?> <?php echo $uploadtimelimit; ?> <?php echo $faq3b; ?> <?php echo $faq3c; ?> <?php echo $uploadtimelimit; ?> <?php echo $faq3d; ?>
 <td width="10"></td>
 </tr>
 <tr>
@@ -133,9 +133,9 @@ bgcolor="#004080">
 <td width="10"></td>
 <td width="100%" align="left">
 <p align="left"><small><font color="#FFFFFF" face="Arial">
-<b><?php echo $lang[faq4]; ?></b>
+<b><?php echo $faq4; ?></b>
 <hr noshade size=1 width=100% color=#8080FF>
-<?php echo $lang[faq4a]; ?> <?php echo $nolimitsize; ?> <?php echo $lang[faq4b]; ?></font></small></td>
+<?php echo $faq4a; ?> <?php echo $nolimitsize; ?> <?php echo $faq4b; ?></font></small></td>
 <td width="10"></td>
 </tr>
 <tr>
@@ -164,9 +164,9 @@ bgcolor="#004080">
 <td width="10"></td>
 <td width="100%" align="left">
 <p align="left"><small><font color="#FFFFFF" face="Arial">
-<b><?php echo $lang[faq5]; ?></b>
+<b><?php echo $faq5; ?></b>
 <hr noshade size=1 width=100% color=#8080FF>
-<?php echo $lang[faq5a]; ?> <a href="http://www.galaxyscripts.com" target="_blank" style="color:#B7B7FF;">Galaxyscripts</a> <?php echo $lang[faq5b]; ?></font></small></td>
+<?php echo $faq5a; ?> <a href="http://www.freesmall.org" target="_blank" style="color:#B7B7FF;">FreeSmall</a> <?php echo $faq5b; ?></font></small></td>
 <td width="10"></td>
 </tr>
 <tr>
