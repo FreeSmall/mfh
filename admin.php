@@ -880,15 +880,15 @@ if ($file != '.' && $file != '..' && $file != '.htaccess') {
 function ZahlenFormatieren($Wert)
 {
     if($Wert > 1099511627776){
-        $Wert = number_format($Wert/1099511627776, 2, ",", ".")." TB";
+        $Wert = number_format($Wert/1099511627776, 2, ".", ",")." TB";
     }elseif($Wert > 1073741824){
-        $Wert = number_format($Wert/1073741824, 2, ",", ".")." GB";
+        $Wert = number_format($Wert/1073741824, 2, ".", ",")." GB";
     }elseif($Wert > 1048576){
-        $Wert = number_format($Wert/1048576, 2, ",", ".")." MB";
+        $Wert = number_format($Wert/1048576, 2, ".", ",")." MB";
     }elseif($Wert > 1024){
-        $Wert = number_format($Wert/1024, 2, ",", ".")." kB";
+        $Wert = number_format($Wert/1024, 2, ".", ",")." kB";
     }else{
-        $Wert = number_format($Wert, 2, ",", ".")." Bytes";
+        $Wert = number_format($Wert, 2, ".", ",")." Bytes";
     }
 	
 	echo "$Wert";

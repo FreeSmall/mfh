@@ -140,12 +140,13 @@ die();
 <?php
 
 $filesize = filesize("./storage/".$foundfile[0]);
-$filesize = $filesize / 1048576;
+//$filesize = $filesize / 1048576;
 
 $userip=$_SERVER['REMOTE_ADDR'];
 $time=time();
 
 ///////////////////////////////////////////TIMER////////////////////////////////////
+$nodolimit=0;
 if($filesize > $nodolimit) {
 if(file_exists("./downloader/".$userip.".mfh"))
 {
@@ -233,27 +234,25 @@ window.onload=startTimer
 }
 ///////////////////////////////////////////TIMER///////////////////////
 
-
-
-$fsize = 0;
-$fsizetxt = "";
-  if ($filesize < 1)
-  {
-     $fsize = round($filesize*1024,0);
-     $fsizetxt = "".$fsize." KB";
-    $check1 = "KB";
-  }
-  else
-    {
-     $fsize = round($filesize,2);
-     $fsizetxt = "".$fsize." MB";
-$check1 = "MB";
-  }
-
+function HumanSize($Wert){
+    if($Wert > 1099511627776){
+        $Wert = number_format($Wert/1099511627776, 2, ".", ",")." TB";
+    }elseif($Wert > 1073741824){
+        $Wert = number_format($Wert/1073741824, 3, ",", ".")." GB";
+    }elseif($Wert > 1048576){
+        $Wert = number_format($Wert/1048576, 1, ".", ",")." MB";
+    }elseif($Wert > 1024){
+        $Wert = number_format($Wert/1024, 0, ".", ",")." kB";
+    }else{
+        $Wert = number_format($Wert, 0, ".", ",")." Bytes";
+    }
+	
+	return "$Wert";
+}
 ?>
 <p>
 <?php
-$quantity= $foundfile[5] * $fsizetxt;
+$quantity= HumanSize($foundfile[5] * $filesize);
 $d=$descriptionoption;
 switch ($d)
 {
@@ -297,9 +296,9 @@ echo "<img src=\"img/warning.gif\" border=0 width=12 height=12> <a href='report.
 
 echo "<table cellspacing=1 cellpadding=2 border=0 bgcolor=#C0C0C0>";
 echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$fn6.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$foundfile[1] ."</td></tr>";
-echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$fbu.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$quantity ." ". $check1."</td></tr>";
+echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$fbu.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$quantity ."</td></tr>";
 echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_ip.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".$foundfile[3]."</td></tr>";
-echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_filesize.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>". $fsizetxt."</td></tr>";
+echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_filesize.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".HumanSize($filesize)."</td></tr>";
 echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_file_dl.":</td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>". $foundfile[5]." ".$dl_file_dl1."</td></tr>";
 echo "<tr><td align=left bgcolor=#F4F4F4 background=\"img/button03.gif\">".$dl_last_dl.": </td><td bgcolor=#EEF4FB background=\"img/button03.gif\"><font color=#000080>".date('Y-m-d G:i', $foundfile[4])."</td></tr>\n";
 
