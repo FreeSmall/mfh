@@ -12,6 +12,7 @@
 require_once("./config.php");
 include("./header.php");
 
+$line="";
 if(in_array($language, $LANGUAGE_LIST)) {
   include('./lang/'.$language.'.php');
 } else {
