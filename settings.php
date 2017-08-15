@@ -38,7 +38,12 @@ include("./header.php");
 
 if( isset($_POST['changesettings']) ){
 $fop =  fopen('secure/settings.mfh', 'w');
-$_POST['setting16'] = md5(md5($_POST['setting16']));
+if($_POST['setting16'] == null ){
+	$_POST['setting16'] = $content[16];
+}else{
+	$_POST['setting16'] = md5(md5($_POST['setting16']));	
+}
+
 for( $i=0; $i<=27; $i++){
    ${"setting".$i} = $_POST["setting".$i];
 }
