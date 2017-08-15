@@ -619,21 +619,24 @@ echo "Deleting old files...<BR>";
 $deleteseconds = time() - ($deleteafter * 24 * 60 * 60);
 $dirname = "./files";
 $dh = opendir( $dirname ) or die("couldn't open directory");
+$deletedfiles=false;
 while ( $file = readdir( $dh ) ) {
-if ($file != '.' && $file != '..' && $file != ".htaccess") {
-  $fh=fopen("./files/" . $file ,"r");
-  $filedata= explode('|', fgets($fh));
-  if ($filedata[4] < $deleteseconds) {
-    $deletedfiles="yes";
-    echo "Deleting - " . $filedata[1] . ":<BR>"; 
-fclose($filedata);
-    unlink("./files/".$file);
-    echo "Deleted /files/" . $file . "<BR>"; 
-    unlink("./storage/".str_replace(".txt","",$file));
-    echo "Deleted /storage/" . str_replace(".txt","",$file) . "<BR><BR>"; 
-  }
-  fclose($fh);
-}
+	if ($file != '.' && $file != '..' && $file != ".htaccess") {
+	  $fh=fopen("./files/" . $file ,"r");
+	  $filedata= explode('|', fgets($fh));
+	  
+	  if ($filedata[4] < $deleteseconds) {
+		$deletedfiles=true;
+		echo "Deleting - " . $filedata[1] . ":<BR>"; 
+		fclose($filedata);
+		unlink("./files/".$file);
+		echo "Deleted /files/" . $file . "<BR>"; 
+		unlink("./storage/".str_replace(".txt","",$file));
+		echo "Deleted /storage/" . str_replace(".txt","",$file) . "<BR><BR>"; 
+	  }
+	  
+	  fclose($fh);
+	}
 }
 closedir( $dh );
 if (!$deletedfiles) echo "No old files to delete!<br /><br />";
@@ -646,7 +649,7 @@ if ($file != '.' && $file != '..' && $file != ".htaccess") {
 $fh=fopen("./imgfiles/" . $file ,"r");
 $filedata= explode('|', fgets($fh));
 if ($filedata[4] < $deleteseconds) {
-$deletedfiles="yes";
+$deletedfiles=true;
 echo "Deleting - " . $filedata[1] . ":<BR>"; 
 fclose($filedata);
 unlink("./imgfiles/".$file);
