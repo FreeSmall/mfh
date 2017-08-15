@@ -43,14 +43,14 @@ foreach($bans as $line)
   if ($line==$rand2."\n"){
 ?> <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
 <?php
-    echo "$lang[noallow]";
+    echo "$noallow";
 ?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
     include("./footer.php");
     die();
   }
   if ($line==$_SERVER['REMOTE_ADDR']."\n"){
 ?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
-   <?php echo "$lang[nallow]";
+   <?php echo "$nallow";
 ?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
     include("./footer.php");
     die();
@@ -65,7 +65,7 @@ foreach($allowedtypes as $ext) {
 }
 if($allowed==0) {
 ?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
-   echo "$lang[itype]";
+   echo "$itype";
    ?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
    die();
@@ -79,7 +79,7 @@ foreach($categories as $cat) {
 }
 if($validcat==0) {
 ?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
-   echo "$lang[icat]";
+   echo "$icat";
 ?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
    include("./footer.php");
    die();
@@ -89,7 +89,7 @@ $cat = $_POST['category'];
 
 if($filesize==0) {
 ?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
-echo "$lang[dpick]";
+echo "$dpick";
 ?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
@@ -99,7 +99,7 @@ $filesize = $filesize / 1048576;
 
 if($filesize > $maxfilesize) {
 ?><center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top><?php
-echo "$lang[tlarge]";
+echo "$tlarge";
 ?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
@@ -121,7 +121,7 @@ $passkey = rand(100000, 999999);
 
 if($emailoption && isset($_POST['myemail']) && $_POST['myemail']!="") {
 $rand2 = urlencode($rand2);
-$uploadmsg = "$lang[ufile] (".$filename.") $lang[wup].\n  ". $lang[udownfile] . ":" . $scripturl . "$short" . $rand2 . "\n ". $lang[udeletefile] . ":" . $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . "\n $lang[thank]";
+$uploadmsg = "$ufile (".$filename.") $wup.\n  ". $udownfile . ":" . $scripturl . "$short" . $rand2 . "\n ". $udeletefile . ":" . $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . "\n $thank";
 mail($_POST['myemail'],"Your Uploaded File",$uploadmsg,"From: ". $email ."\n");
 $rand2 = urldecode($rand2);
 }
@@ -144,10 +144,10 @@ move_uploaded_file($_FILES['upfile']['tmp_name'], $movefile);
 
 <?php
 include("./ads.php");
-echo "<center><b> $lang[yupfile] </b></center><br />";
-echo "<center> $lang[udownfile] </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "\">". $scripturl . "$short" . $rand2 . "</a><br />";
-echo "<p><center> $lang[udeletefile] </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . " \">". $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . "</a><br />";
-echo "<p><center> $lang[uremfile]."; ?><p><?php
+echo "<center><b> $yupfile </b></center><br />";
+echo "<center> $udownfile </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "\">". $scripturl . "$short" . $rand2 . "</a><br />";
+echo "<p><center> $udeletefile </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . " \">". $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . "</a><br />";
+echo "<p><center> $uremfile."; ?><p><?php
 include("./bottomads.php");
 ?>
   </td></tr></table></center>
