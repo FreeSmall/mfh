@@ -899,8 +899,8 @@ $prozent_belegt = 100*$belegt/$insgesamt;
 </td><td>
 <center><table width=340 border=0 cellspacing=1 cellpadding=3 bgcolor=#C0C0C0>
 <tr><td bgcolor=#F4F4F4><?php echo $diskspace;?></td><td bgcolor=#F4F4F4><?php ZahlenFormatieren($insgesamt);?></td></tr>
-<tr><td bgcolor=#F4F4F4><?php echo $in_use;?></td><td bgcolor=#F4F4F4><?php ZahlenFormatieren($belegt);?>    (<?php=round($prozent_belegt,"2");?> %)</td></tr>
-<tr><td colspan=2 bgcolor=#F4F4F4 align=center><center><img src="ratingbar.php?rating=<?php round($prozent_belegt,"2");?>" border="0"></td></tr>
+<tr><td bgcolor=#F4F4F4><?php echo $in_use;?></td><td bgcolor=#F4F4F4><?php ZahlenFormatieren($belegt);?> (<?php round($prozent_belegt,"2");?>%)</td></tr>
+<tr><td colspan=2 bgcolor=#F4F4F4 align=center><center><img src="ratingbar.php?rating=<?php round($prozent_belegt,"2");?>" border="8"></td></tr>
 <tr><td bgcolor=#F4F4F4><?php echo $free;?></td><td bgcolor=#F4F4F4><?php ZahlenFormatieren($frei);?>
 </td></tr></table></center>
 

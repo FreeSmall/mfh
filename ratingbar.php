@@ -11,6 +11,7 @@
 ////////////////////////////////////////////////////////
 
 function drawRating($rating) {
+
    $width = $_GET['width'];
    $height = $_GET['height'];
    if ($width == 0) {
@@ -23,10 +24,11 @@ function drawRating($rating) {
    $rating = $_GET['rating'];
    $ratingbar = (($rating/100)*$width)-2;
 
+   ob_clean();
    $image = imagecreate($width,$height);
    //colors
 
-   $fill = ImageColorAllocate($image,0,255,0); //grün
+   $fill = ImageColorAllocate($image,0,255,0);
    if ($rating > 49) { $fill = ImageColorAllocate($image,255,255,0); } //gelb
    if ($rating > 74) { $fill = ImageColorAllocate($image,255,128,0); } //orange
    if ($rating > 89) { $fill = ImageColorAllocate($image,255,0,0); } //rot
