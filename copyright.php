@@ -14,4 +14,4 @@
 // Please Do Not Remove or Change The Below Code
 // (If You Want To Remove It Please Donate And You Will Be Allowed To Do So)
 ?>
-<p><span style="color:white"><font face="Verdana" size="1"><center>Powered By <b>Mini File Host</b> v1.5 <a target="_blank" href="http://www.galaxyscripts.com"><font color="#FFFFFF"><b>Galaxyscripts</b></font></a></p>
+<p><span style="color:white"><font face="Verdana" size="1"><center>Powered By <b>Mini File Host</b> v1.5 <a target="_blank" href="http://www.freesmall.org"><font color="#FFFFFF"><b>FreeSmall</b></font></a></p>
