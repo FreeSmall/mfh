@@ -22,5 +22,5 @@
    closedir($handle);
    $top = count($files);
  
-$total=  $top - 1;
+$totalf=  $top - 1;
       ?> 

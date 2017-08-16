@@ -145,6 +145,6 @@ var bar1= createBar(300,15,'white',1,'black','blue',85,7,3,"");
 <input type="button" value="Cancel Upload" onclick="CancelUpload()">
 </form>
 </div>
-</div>	<br /><?php echo $hosting;?>  <b><?php echo $total; ?></b> <?php echo $files;?> <b><?php echo $sizehosted; ?></b> MB <?php echo $total;?>
+</div>	<br /><?php echo $hosting;?>  <b><?php echo $totalf; ?></b> <?php echo $files;?> <b><?php echo $sizehosted; ?></b> MB <?php echo $total;?>
 <p>	<?php include("./bottomads.php"); ?>
 </center></td></tr></table><p style="margin:3px;text-align:center">
