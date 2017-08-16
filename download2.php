@@ -74,7 +74,11 @@ chmod($newfile,0777);
 $validdownload[4] = time();
 
 session_start();
+printlog("logged_in", $_SESSION['logged_in']);
+printlog("\$adminpass", $adminpass);
+printlog("md5(md5(\$adminpass))", md5(md5($adminpass)));
 if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==md5(md5($adminpass))) {
+	printlog("Notice:", "This need count the download times!");
 }
 else {
 

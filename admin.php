@@ -24,6 +24,9 @@ include("./header.php");
 if($act=="login"){
   if (md5(md5($_POST['passwordx']))==$adminpass){
     $_SESSION['logged_in'] = md5(md5($adminpass));
+	printlog("logged_in", $_SESSION['logged_in']);
+	printlog("\$adminpass", $adminpass);
+	printlog("md5(md5(\$adminpass))", md5(md5($adminpass)));
   }
 }
 if($act=="logout"){
