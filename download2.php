@@ -40,7 +40,7 @@ $validdownload = 0;
 $filecrc = $_GET['a'];
 $filecrctxt = $filecrc.".mfh";
 if (file_exists("./files/".$filecrctxt)) {
-	$fh = fopen ("./files/".$filecrctxt,r);
+	$fh = fopen ("./files/".$filecrctxt, "r");
 	$thisline= explode('|', fgets($fh));
 	if ($thisline[0]==$_GET['a'] && md5($thisline[2].$_SERVER['REMOTE_ADDR'])==$_GET['b'])
 		$validdownload=$thisline;
