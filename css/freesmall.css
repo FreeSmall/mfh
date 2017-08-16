@@ -1,0 +1,156 @@
+/* ############################################################################# */
+/* MiniFileHost v1.5 default-style CSS                                           */
+/* written by Inekai - http://zzqshare.de                                        */
+/* Using with Mini File Host v1.5                                                */
+/* ############################################################################# */
+
+body{
+	margin:0px;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	height:100%;
+	background: url(../img/bg.gif) repeat-x;
+	background-color: #000000;
+	text-align: left;
+}
+
+p{
+	text-align: left;
+}
+
+
+a{
+	text-decoration: none;
+	/* color:#12519F; */
+	color:#0000AC;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+a:visited{
+color:#0000AC;
+}
+
+
+a.headlink{
+}
+
+a.headlink:hover{
+	text-decoration: none;
+}
+
+h1{
+	font-size: 18px;
+	text-align: left;
+}
+
+h2{
+	text-align: justify;
+	margin-top:10px;
+	font-size:10px;
+}
+
+img{
+	border:0px;
+}
+
+
+.steps{
+	font-size:14px;
+	margin-top:9px;
+	margin-bottom:5px;
+	font-weight:bold;
+}
+
+.cstep{
+	font-size:14px;
+}
+
+.notice{
+text-align: justify;
+margin-top:15px;
+font-size:11px;
+}
+
+.copyright{
+font-size:11px;
+color:#ffffff;
+text-align:center;
+margin-top:8px;
+font-weight:bold;
+}
+
+.toplinks{
+font-size:12px;
+color:#ffffff;
+font-weight:bold;
+}
+
+
+.toplinks:visited{
+	color:#FFFFFF;
+}
+
+.extralink{
+font-size:11px;
+color:#ffffff;
+font-weight:plain;
+}
+
+
+.extralink:visited{
+	color:#FFFFFF;
+}
+
+
+.upinput{
+width:420px;
+background:url(../img/input_back.gif);
+border:1px solid #999999;
+/*
+margin-bottom:5px;
+margin-top:5px;
+*/
+}
+
+
+
+
+input {
+	background:url(../img/button03.gif);
+	border:1px solid #999999;
+}
+
+upload {
+	background:url(../img/button03.gif);
+	border:1px solid #999999;
+}
+
+delete {
+	background:url(../img/button03.gif);
+	border:1px solid #999999;
+}
+
+textarea{
+	background:url(../img/input_back.gif) repeat-x;
+	border:1px solid #999999;
+}
+
+form{
+margin:0px;
+}
+
+.faqheader{
+font-size:15px;
+font-weight:bold;
+margin-bottom:0px;
+}
+
+.faqbody{
+font-size:13px;
+margin-top:0px;
+margin-bottom:15px;
+text-align:justify;
+}

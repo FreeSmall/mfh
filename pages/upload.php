@@ -115,7 +115,7 @@ function toggle(link, divId) { var lText = link.innerHTML; var d = getObject(div
 <body onload="denyTerms()">
 <tr><td colspan=2 style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
   	<?php include("./ads.php"); ?>
-<p><center><?php echo $info;?></center></p>
+<p><center></center></p>
 
 <h1><center><?php echo $upload;?></center></h1>
 	<br />
