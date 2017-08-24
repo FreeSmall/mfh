@@ -23,9 +23,9 @@ if(isset($_GET['file'])){
 $thisfile=$_GET['file'];
 }else{
 ?>
-<center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?
-echo "<center>$lang[treport]</center>";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+<center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?php
+echo "<center>$treport</center>";
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 }
@@ -34,16 +34,16 @@ die();
 
 $foundfile=0;
 if (file_exists("./files/".$thisfile.".mfh")) {
-	$fh1=fopen("./files/".$thisfile.".mfh",r);
+	$fh1=fopen("./files/".$thisfile.".mfh","r");
 	$foundfile= explode('|', fgets($fh1));
 	fclose($fh1);
 }
 
 
 if($foundfile==0){
-?><center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?
-echo "<center>$lang[treport]</center>";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?><center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?php
+echo "<center>$treport</center>";
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 }
@@ -52,9 +52,9 @@ $bans=file("./secure/bans.mfh");
 foreach($bans as $line)
 {
   if ($line==$_SERVER['REMOTE_ADDR']."\n"){
-?><center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?
-    echo "<center>$lang[uall]</center>";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+?><center><table style='margin-top:0px;width:790px;height:400px;'><tr><td style='border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;' valign=top><?php
+    echo "<center>$uall</center>";
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
     include("./footer.php");
     die();
   }
@@ -71,14 +71,14 @@ foreach($fc as $line)
 
 if($reported == 1) {
 ?> <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
-<?
-echo "<center><b>$lang[rthanks]<p></b></center>";
+<?php
+echo "<center><b>$rthanks<p></b></center>";
 ?> <META HTTP-EQUIV="Refresh"
-      CONTENT="10; URL=index.php"> <?
-include("./squareads.php");?><p><?
+      CONTENT="10; URL=index.php"> <?php
+include("./squareads.php");?><p><?php
 
-echo "<center><b>$lang[redir]</center></b><br />";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+echo "<center><b>$redir</center></b><br />";
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 die();
 }
@@ -86,13 +86,13 @@ die();
 $filelist = fopen("./secure/reports.mfh","a+");
 fwrite($filelist, $thisfile ."|". $_SERVER['REMOTE_ADDR'] ."\n");
 ?> <center><table style="margin-top:0px;width:790px;height:400px;"><tr><td style="border:1px #AAAAAA solid;height:100%;background-color:#FFFFFF;padding:20px;text-align:left;" valign=top>
-<?
-echo "<center><b>$lang[rthanks]</b><p>";
+<?php
+echo "<center><b>$rthanks</b><p>";
 ?> <META HTTP-EQUIV="Refresh"
-      CONTENT="10; URL=index.php"> <?
-include("./squareads.php");?><p><?
-echo "<center><b>$lang[redir]</center></b><br />";
-?></center></td></tr></table><p style="margin:3px;text-align:center"><?
+      CONTENT="10; URL=index.php"> <?php
+include("./squareads.php");?><p><?php
+echo "<center><b>$redir</center></b><br />";
+?></center></td></tr></table><p style="margin:3px;text-align:center"><?php
 include("./footer.php");
 
 ?>
