@@ -148,7 +148,7 @@ move_uploaded_file($_FILES['upfile']['tmp_name'], $movefile);
 include("./ads.php");
 echo "<center><b> $yupfile </b></center><br />";
 echo "<center> $udownfile </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "\">". $scripturl . "$short" . $rand2 . "</a><br />";
-echo "<p><center> $udeletefile </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . " \">". $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . "</a><br />";
+//echo "<p><center> $udeletefile </center> <p><center> <a href=\"" . $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . " \">". $scripturl . "$short" . $rand2 . "&del=" . $passkey . "&ignore=" . "</a><br />";
 echo "<p><center> $uremfile."; ?><p><?php
 include("./bottomads.php");
 ?>
