@@ -126,8 +126,10 @@ mail($_POST['myemail'],"Your Uploaded File",$uploadmsg,"From: ". $email ."\n");
 $rand2 = urldecode($rand2);
 }
 
+$rawpwd="";
 if($passwordoption && isset($_POST['pprotect'])) {
   $passwerd = md5($_POST['pprotect']);
+  $rawpwd = $_POST['pprotect'];
 } else { $passwerd = md5(""); }
 
 if($descriptionoption && isset($_POST['descr'])) {
@@ -135,7 +137,7 @@ if($descriptionoption && isset($_POST['descr'])) {
 } else { $description = ""; }
 
 $filelist = fopen("./files/".$rand2.".mfh","w");
-fwrite($filelist, $rand2 ."|". basename($_FILES['upfile']['name']) ."|". $passkey ."|". $userip ."|". $time."|0|".$description."|".$passwerd."|".$cat."|".$_POST['pprotect']."|\n");
+fwrite($filelist, $rand2 ."|". basename($_FILES['upfile']['name']) ."|". $passkey ."|". $userip ."|". $time."|0|".$description."|".$passwerd."|".$cat."|".$rawpwd."|\n");
 
 $movefile = "./storage/" . $rand2;
 move_uploaded_file($_FILES['upfile']['tmp_name'], $movefile);
