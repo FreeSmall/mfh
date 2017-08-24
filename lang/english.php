@@ -12,7 +12,7 @@
 // Language - English
 
 // Main Page /pages/upload.php
-$upload = "Upload File" ;
+$upload = "File Upload" ;
 $maxsize = "Maximum Filesize :";
 $email = "Email Address :";
 $description = "File Description :";
@@ -31,6 +31,8 @@ $passopt = "Password Protection";
 $opt = "Optional";
 
 // Upload Page upload.php
+$file_tip = "File: ";
+$upload_btn = "Launch!";
 $yupfile = "Your file was uploaded!";
 $udownfile = "Your download link";
 $udeletefile = "Your delete link";
@@ -251,6 +253,7 @@ $dltotal = "Total Downloads: ";
 $pagination = "Page: ";
 
 // Toplinks
+$top_home = "Home Page";
 $top_upload = "Upload File";
 $top_imageup = "Upload Image";
 $top_files = "Files";
